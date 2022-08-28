@@ -1,14 +1,6 @@
-#############################################################################################################
-#  Copyright (C) 2020-21 Lab Cocozza, University of Naples Federico II, Naples
-## CONFIDENTIAL
-## This document is proprietary and confidential. No part of this document may be disclosed in any manner
-## to a third party without the prior written consent
-#############################################################################################################
-#############################################################################################################
-
-####This script filters out apiloci based on their coverage
-#### and randomly selects one epilocus among overlapping epiloci.
-#### In this way, only non overlapping epiloci covered by at least 50 reads will be retained for further analysis
+# This script filters out epiloci based on their coverage
+# and randomly selects one epilocus among overlapping epiloci.
+# In this way, only non overlapping epiloci covered by at least 50 reads will be retained for further analysis
 
 ####################################################################################
 library(tidyverse)
