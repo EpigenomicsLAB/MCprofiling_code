@@ -29,3 +29,5 @@ The epiallele matrix file will look like this:
 | 1011 | 1 | chr10_294510_294561 | * |
 | 1101 | 2 | chr10_294510_294561 | * |
 | 1111 | 56| chr10_294510_294561 | * |
+
+For further details on the EpiStatProfiler package, see https://github.com/BioinfoUninaScala/epistats/
