@@ -1,13 +1,5 @@
-#############################################################################################################
-#  Copyright (C) 2020-21 Lab Cocozza, University of Naples Federico II, Naples
-## CONFIDENTIAL
-## This document is proprietary and confidential. No part of this document may be disclosed in any manner
-## to a third party without the prior written consent
-#############################################################################################################
-#############################################################################################################
-
-####This script computes MC profiles from the epiStatProfiler output (epiAnalysis.txt file)
-####The scripts can work on several input files 
+# This script computes MC profiles from the epiStatProfiler output (epiAnalysis.txt file)
+# The scripts can work on several input files 
 ####################################################################################
 library(tidyverse)
 library(gtools)
