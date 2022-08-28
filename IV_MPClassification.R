@@ -1,16 +1,8 @@
-#############################################################################################################
-#  Copyright (C) 2020-21 Lab Cocozza, University of Naples Federico II, Naples
-## CONFIDENTIAL
-## This document is proprietary and confidential. No part of this document may be disclosed in any manner
-## to a third party without the prior written consent
-#############################################################################################################
-#############################################################################################################
-
-####This script assignes an MC profile to the nearest methylation pattern (MP)
-#### First, it computes the distance from 5 reference profiles
-#### Then, it assigns the profile to the MP corresponding to the most similar reference profile 
-#### The present script works on the consensus MC profile, but can be arranged to work on individual samples' 
-#### MC profiles (out_II) by changing the value of MC_index
+# This script assignes an MC profile to the nearest methylation pattern (MP)
+# First, it computes the distance from 5 reference profiles
+# Then, it assigns the profile to the MP corresponding to the most similar reference profile 
+# The present script works on the consensus MC profile, but can be arranged to work on individual samples' 
+# MC profiles (out_II) by changing the value of MC_index
 ####################################################################################
 library(tidyverse)
 ######
