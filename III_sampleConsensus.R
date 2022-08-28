@@ -1,17 +1,8 @@
-#############################################################################################################
-#  Copyright (C) 2020-21 Lab Cocozza, University of Naples Federico II, Naples
-## CONFIDENTIAL
-## This document is proprietary and confidential. No part of this document may be disclosed in any manner
-## to a third party without the prior written consent
-#############################################################################################################
-#############################################################################################################
-
-####This script imports MC profiles from multiple samples and compute a consensus profile
-#### It first selects common epiloci among all samples
-#### Then, it compare the profiles between all sample pairs
-#### It retains only epiloci above the threshold in all sample pairs
-#### Finally, it computes the consensus MC profile by averaging the relative abundance of each MC among the samples
-
+# This script imports MC profiles from multiple samples and compute a consensus profile
+# It first selects common epiloci among all samples
+# Then, it compare the profiles between all sample pairs
+# It retains only epiloci above the threshold in all sample pairs
+# Finally, it computes the consensus MC profile by averaging the relative abundance of each MC among the samples
 ####################################################################################
 library(tidyverse)
 library(combinat)
