@@ -1,5 +1,4 @@
 ## MC profiling: a novel approach to analyze DNA methylation heterogeneity in genome-wide bisulfite sequencing data
-![image](https://user-images.githubusercontent.com/94288493/187060567-0da950cb-ba96-4862-8aff-f5d2fe8ea40a.png)
 
 This directory contains the R software that implements MC profiling.
 Methylation Class (MC) profiling is a genome-wide approach to the study of DNA methylation heterogeneity from bulk bisulfite sequencing experiments. 
