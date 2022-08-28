@@ -19,12 +19,11 @@ RScripts run_Epistat/0_runEpistat.R -b <path to bam file> -g <path to reference 
 As a first step, EpiStatProfiler will retrieve all regions holding 4 CpGs covered by at least 50 reads in the alignment file;
 then, for each region it will analyze the arrangments of methylated cytosines in the sequencing reads. The arrangments found will be saved in the epiallele matrix file, along with the number of supporting reads and the coordinates of the region.
 The epiallele matrix file will look like this:
-```
-|0111|2|chr10_294499_294532|*|
-|1101|1|chr10_294499_294532*|
-|1110|2|chr10_294499_294532|*|
-|1111|54|chr10_294499_294532|*|
-|1011|1|chr10_294510_294561|*|
-|1101|2|chr10_294510_294561|*|
-|1111|56|chr10_294510_294561|*|
-```
+
+| Va1  | 0111 | 1101 | 1110 | 1111 | 1011 | 1101 | 1111 |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| Freq |  2   | 1    | 2    | 54   | 1    | 2    | 56   |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| id |chr10_294499_294532|chr10_294499_294532|chr10_294499_294532|chr10_294499_294532|chr10_294510_294561|chr10_294510_294561|chr10_294510_294561|
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| strand |  *   |  *   | *    | *   | *    | *   | *   |
