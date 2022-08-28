@@ -21,6 +21,7 @@ then, for each region it will analyze the arrangments of methylated cytosines in
 The epiallele matrix file will look like this:
 
 | 0111 | 2 | chr10_294499_294532 | * |
+|:----:|:-:|:-------------------:|:-:|
 | 1101 |1  | chr10_294499_294532 | * |
 | 1110 |2  | chr10_294499_294532 | * |
 | 1111 |54 | chr10_294499_294532 | * |
