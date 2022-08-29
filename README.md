@@ -16,7 +16,7 @@ RScripts 0_runEpistat.R -b <path to bam file> -g <path to reference genome fasta
 EpiStatProfiler takes in input an alignment file (provided as BAM file) and a reference genome (provided as FASTA file).
 As a first step, EpiStatProfiler will retrieve all regions holding 4 CpGs (epiloci) covered by at least 50 reads in the alignment file;
 then, for each region it will analyze the arrangments of methylated cytosines in the sequencing reads. The arrangments found will be saved in the epiallele matrix file, along with the number of supporting reads and the coordinates of the region.
-The epiallele matrix file ("<sample>"_epiAnalysis.txt) will look like this:
+The epiallele matrix file (\<sample\>_epiAnalysis.txt) will look like this:
 
 | var1 | Freq | id | strand |
 |:----:|:-:|:-------------------:|:-:|
