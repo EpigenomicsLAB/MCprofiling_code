@@ -16,7 +16,7 @@ RScripts 0_runEpistat.R -b <path to bam file> -g <path to reference genome fasta
 EpiStatProfiler takes in input an alignment file (provided as BAM file) and a reference genome (provided as FASTA file).
 As a first step, EpiStatProfiler will retrieve all regions holding 4 CpGs (epiloci) covered by at least 50 reads in the alignment file;
 then, for each region it will analyze the arrangments of methylated cytosines in the sequencing reads. The arrangments found will be saved in the epiallele matrix file, along with the number of supporting reads and the coordinates of the region.
-The epiallele matrix file (<sample>_epiAnalysis.txt) will look like this:
+The epiallele matrix file ("<sample>"_epiAnalysis.txt) will look like this:
 
 | var1 | Freq | id | strand |
 |:----:|:-:|:-------------------:|:-:|
@@ -29,7 +29,7 @@ The epiallele matrix file (<sample>_epiAnalysis.txt) will look like this:
 | 1111 | 56| chr10_294510_294561 | * |
 
 EpiStatProfiler also compute some statistics for the analzed regions, which will be saved in a bed file.
-The bed file (<sample>_intervals.bed) will look like this:
+The bed file ("<sample>"_intervals.bed) will look like this:
 
 | seqnames | start	| end	| width	| strand	| dist	| epi	| singleton	| maxfreq	| shannon	| mean_met	| num_cg |	num_reads |
 |:--------:|:------:|:---:|:-----:|:-------:|:-----:|:---:|:---------:|:-------:|:-------:|:---------:|:------:|:----------:|
@@ -40,8 +40,8 @@ For further details on the EpiStatProfiler package, see https://github.com/Bioin
 
 ## 2) Filtering of epiloci
 By executing the script I_epilociFiltering.R, we will select the epiloci with coverage higher or equal to 50 reads and lower than 99th percentile. In case of overlap, we will retain only one of the epiloci.
-For each sample, two new files will be generated: <sample>_epiAnalysis_filtered.txt and <sample>_intervals_filtered.bed.
-Note that the script can deal with multiple samples, provided that the epiallele matrix and the bed file are in the same input directory and that they can be matched through their <sample> prefix. The input dir can be set by the user changing the value of the inputDir variable in the script.
+For each sample, two new files will be generated: "<sample>"_epiAnalysis_filtered.txt and "<sample>"_intervals_filtered.bed.
+Note that the script can deal with multiple samples, provided that the epiallele matrix and the bed file are in the same input directory and that they can be matched through their "<sample>" prefix. The input dir can be set by the user changing the value of the inputDir variable in the script.
 
 ## 3) Computation of MC profiles
 
