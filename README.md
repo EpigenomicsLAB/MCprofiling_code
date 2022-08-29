@@ -29,7 +29,7 @@ The epiallele matrix file (\<sample\>_epiAnalysis.txt) will look like this:
 | 1111 | 56| chr10_294510_294561 | * |
 
 EpiStatProfiler also compute some statistics for the analzed regions, which will be saved in a bed file.
-The bed file (\<sample\>_intervals.bed
+The bed file (\<sample\>_intervals.bed) will look like this:
 
 | seqnames | start	| end	| width	| strand	| dist	| epi	| singleton	| maxfreq	| shannon	| mean_met	| num_cg |	num_reads |
 |:--------:|:------:|:---:|:-----:|:-------:|:-----:|:---:|:---------:|:-------:|:-------:|:---------:|:------:|:----------:|
@@ -41,10 +41,25 @@ For further details on the EpiStatProfiler package, see https://github.com/Bioin
 ## 2) Filtering of epiloci
 By executing the script I_epilociFiltering.R, we will select the epiloci with coverage higher or equal to 50 reads and lower than 99th percentile. In case of overlap, we will retain only one of the epiloci.
 For each sample, two new files will be generated: \<sample\>_epiAnalysis_filtered.txt and "<sample>"_intervals_filtered.bed.
-Note that the script can deal with multiple samples, provided that the epiallele matrix and the bed file are in the same input directory and that they can be matched through their \<sample\> prefix. The input dir can be set by the user changing the value of the inputDir variable in the script.
+Note that the script can deal with multiple samples, provided that the epiallele matrix and the bed file are in the same input directory and that they can be matched through their \<sample\> prefix. The input directory can be set by the user changing the value of the inputDir variable in the script.
 
 ## 3) Computation of MC profiles
+By executing the script II_MCprofiling.R, we will compute the MC profiles for the selected epiloci.
+The epialleles with the same number of methylated cytosines (indicated as 1) will be grouped in Methylation Classes, and the number of supporting reads will be summed. Then, for each possible MC, the relative abundance (i.e. the number of supporting reads out of the number of reads mapped to the epilocus) will be computed.
+The MC profiles will be saved in a file named \<sample\>_MCprofiles.txt.
+| id	| 0	| 1	| 2 |	3	| 4 |
+|:---:|:-:|:-:|:-:|:-:|:-:|
+| chr10_1000256_1000305	| 0	| 0	| 0	| 0.08064516129032258	| 0.9193548387096774 |
+| chr10_100227667_100227709 |	1	| 0	| 0	| 0	| 0 |
+Note that the script can deal with multiple samples if multiple epiallele filtered matrix files are provided in the same input directory. Also in this case, the input directory can be set by the user changing the value of the inputDir variable in the script.
 
-  
+## 4) Comparison of MC profiles
+To quantify the dissimilarity between two MC profiles, we adopted the Jensen-Shannon distance (JSD).
+```
+JSD<- function(x,y) sqrt(0.5 * KLD(x, (x+y)/2) + 0.5 * KLD(y, (x+y)/2))
+KLD <- function(x,y) sum(x * log2(x/y), na.rm = T)
+```
+where x and y are the vectors of the abundances of the two MC profiles to be compared.
 
-
+## 5) Multiple samples handling
+## 6) MC profile classification
