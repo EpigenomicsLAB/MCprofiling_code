@@ -70,6 +70,7 @@ Finally, for each selected epilocus, we will compute the consensus MC profile by
 The consensus profiles, along with the JSD observed in the sample pairs, will be saved in the consensus_MCprofiles.txt file.
 
 | id	| sample1_sample2	| sample1_sample3	| sample2_sample3	| 0	| 1	| 2	| 3	| 4 |
+|:---:|:---------------:|:---------------:|:---------------:|:-:|:-:|:-:|:-:|:-:|
 | chr10_100227667_100227709	| 0.19892611694951864	| 0.17512680621292145	| 0.02849152161736604	| 0.9543589743589744	| 0.045641025641025644	| 0	| 0	| 0 |
 | chr10_100992192_100992223	| 0.14617785097801772	| 0.19261120760552786	| 0.1715471175232086	| 0.8390612202268067 |	0.12982019272525383	| 0.011494252873563216	| 0.013877207737594613	| 0.0057471264367816065 |
   
