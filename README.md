@@ -63,4 +63,15 @@ KLD <- function(x,y) sum(x * log2(x/y), na.rm = T)
 where x and y are the vectors of the abundances of the two MC profiles to be compared.
 
 ## 5) Multiple samples handling
+When multiple samples are available for a given condition, we can compute an average profile by running the script III_sampleConsensus.R.
+First, we will select the epiloci shared by all the samples.
+Then, for each epilocus, we will compare the MC profile among all the possible sample pairs. Only the stable epiloci (i.e., epiloci with JSD below the established threshold of 0.26) will be selected.
+Finally, for each selected epilocus, we will compute the consensus MC profile by averaging the relative abundances of MCs in the samples.
+The consensus profiles, along with the JSD observed in the sample pairs, will be saved in the consensus_MCprofiles.txt file.
+
+| id	| sample1_sample2	| sample1_sample3	| sample2_sample3	| 0	| 1	| 2	| 3	| 4 |
+| chr10_100227667_100227709	| 0.19892611694951864	| 0.17512680621292145	| 0.02849152161736604	| 0.9543589743589744	| 0.045641025641025644	| 0	| 0	| 0 |
+| chr10_100992192_100992223	| 0.14617785097801772	| 0.19261120760552786	| 0.1715471175232086	| 0.8390612202268067 |	0.12982019272525383	| 0.011494252873563216	| 0.013877207737594613	| 0.0057471264367816065 |
+  
+Note that the script will consider all the samples for which an MCprofiles.txt file is provided in the input directory.
 ## 6) MC profile classification
