@@ -51,6 +51,7 @@ The MC profiles will be saved in a file named \<sample\>_MCprofiles.txt.
 |:---:|:-:|:-:|:-:|:-:|:-:|
 | chr10_1000256_1000305	| 0	| 0	| 0	| 0.08064516129032258	| 0.9193548387096774 |
 | chr10_100227667_100227709 |	1	| 0	| 0	| 0	| 0 |
+
 Note that the script can deal with multiple samples if multiple epiallele filtered matrix files are provided in the same input directory. Also in this case, the input directory can be set by the user changing the value of the inputDir variable in the script.
 
 ## 4) Comparison of MC profiles
