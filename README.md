@@ -76,3 +76,12 @@ The consensus profiles, along with the JSD observed in the sample pairs, will be
   
 Note that the script will consider all the samples for which an MCprofiles.txt file is provided in the input directory.
 ## 6) MC profile classification
+To further improve the interpretability of MC profiles, we can assigne each MC profile to a Methylation Patterns by running the script IV_MPClassification.R (see https://doi.org/10.1101/2022.07.06.498979 for details).
+Each MC profile is compared to 5 archetypal profiles by computing the JSD. The profile is then assigned to the MP which correspond to the archetype with the lowest JSD.
+The MP, along with the JSD from the 5 archetypes, is saved in the  MP_classification file.
+Here is an example of classification for the previously computed consensus profiles.
+
+| id	| sample1_sample2	| sample1_sample3	| sample2_sample3	| 0	| 1	| 2	| 3	| 4	| D1	| D2	| D3	| D4	| D5	| Class |
+|:---:|:---------------:|:---------------:|:---------------:|:-:|:-:|:-:|:-:|:-:|:---:|:---:|:---:|:---:|:---:|:-----:|
+| chr10_100227667_100227709	| 0.19892611694951864	| 0.17512680621292143	| 0.02849152161736604	| 0.9543589743589744	| 0.04564102564102564	| 0 |	0	| 0	| 0.2065395137803402	| 1	| 0.5846289702431131	| 0.9530208819678299	| 0.728732604086668	| D1 |
+| chr10_100992192_100992223	| 0.14617785097801772	| 0.19261120760552783	| 0.1715471175232086	| 0.8390612202268067	| 0.12982019272525383	| 0.01149425287356321	| 0.01387720773759461	| 0.0057471264367816 |	0.146021950545462	| 0.9686685813177589	| 0.521633692547548	| 0.863221494527554	| 0.620654534924665	| D1 |
