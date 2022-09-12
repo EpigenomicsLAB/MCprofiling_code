@@ -11,7 +11,7 @@ For further details on MC profiling, see https://doi.org/10.1101/2022.07.06.4989
 ## 1) Preliminary step
 In order to perform MC profiling, we need to run the EpiStatProfiler package (https://github.com/BioinfoUninaScala/epistats).
 ```
-RScripts 0_runEpistat.R -b <path to bam file> -g <path to reference genome fasta> -t 50 -m "CG" --modeAnalysis "n_cg" -n 4 --minBinsize 8 --maxBinsize 100 --cores <number of cores> 
+Rscript 0_runEpistat.R -b <path to bam file> -g <path to reference genome fasta> -t 50 -m "CG" --modeAnalysis "n_cg" -n 4 --minBinsize 8 --maxBinsize 100 --cores <number of cores> 
 ```
 EpiStatProfiler takes in input an alignment file (provided as BAM file) and a reference genome (provided as FASTA file).
 As a first step, EpiStatProfiler will retrieve all regions holding 4 CpGs (epiloci) covered by at least 50 reads in the alignment file;
