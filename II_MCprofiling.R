@@ -24,8 +24,8 @@ compute_classProfiles=function(sampleEpi)
   sampleEpi=left_join(sampleEpi, epialleles, by=c("Var1"="epi"))
   sampleEpi=sampleEpi[c(2,3,5)]
   sampleEpi=sampleEpi %>% 
-    group_by(id,class) %>% 
-    summarise_at(vars(Freq),list(Freq = sum))
+    dplyr::group_by(id,class) %>% 
+    dplyr::summarise_at(vars(Freq),list(Freq = sum))
   sampleEpi=spread(sampleEpi, key = class, value = Freq)
   sampleEpi[is.na(sampleEpi)]=0
   sampleEpi[-1]=as.data.frame(t(apply(sampleEpi[-1], 1, function(x) x/sum(x))))
