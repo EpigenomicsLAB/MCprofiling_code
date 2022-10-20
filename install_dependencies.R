@@ -11,7 +11,7 @@ if (vers < 4.1)
     print(paste0("Missing ", length(cran_pkgs.inst), " CRAN Packages:"))
     for(pkg in cran_pkgs.inst){
       print(paste0("Installing Package:'", pkg, "'..."))
-      install.packages(pkg, repo="http://cran.rstudio.org", dependencies=TRUE)
+      install.packages(pkg, repos="http://cran.rstudio.org", dependencies=TRUE)
       print("Installed!!!")
     }
   }
