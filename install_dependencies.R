@@ -10,18 +10,6 @@
     }
   }
 
-#Install Bioconductor dependencies
-bioc_pkgs <- c()
-bioc_pkgs.inst <- bioc_pkgs[!(bioc_pkgs %in% rownames(installed.packages()))]
-if(length(bioc_pkgs.inst)>0){
-  print(paste0("Missing ", length(bioc_pkgs.inst), " Bioconductor Packages:"))
-  for(pkg in bioc_pkgs.inst){
-    print(paste0("Installing Package:'", pkg, "'..."))
-    install.bioc(pkg)
-    print("Installed!!!")
-  }
-}
-
 #Install CRAN dependencies
 cran_pkgs <- c("tidyverse","parallel","gtools","combinat")
 cran_pkgs.inst <- cran_pkgs[!(cran_pkgs %in% rownames(installed.packages()))]
