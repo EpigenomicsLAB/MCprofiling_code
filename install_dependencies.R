@@ -1,14 +1,10 @@
-
-#Universal Bioconductor package installation function
-  install.bioc <- function(pkg){
-    vers <- getRversion()
-    if (vers < 4.1){
-      "You need R >= 4.1"
-    }else{
-      if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
-      BiocManager::install(pkg)
-    }
-  }
+vers <- getRversion()
+if (vers < 4.1)
+{
+  "You need R >= 4.1"
+}else{
+   if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+}
 
 #Install CRAN dependencies
 cran_pkgs <- c("tidyverse","parallel","gtools","combinat")
