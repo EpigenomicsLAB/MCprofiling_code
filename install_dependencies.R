@@ -23,7 +23,7 @@ if(length(bioc_pkgs.inst)>0){
 }
 
 #Install CRAN dependencies
-cran_pkgs <- c("tidyverse","parallel")
+cran_pkgs <- c("tidyverse","parallel","gtools")
 cran_pkgs.inst <- cran_pkgs[!(cran_pkgs %in% rownames(installed.packages()))]
 if(length(cran_pkgs.inst)>0){
   print(paste0("Missing ", length(cran_pkgs.inst), " CRAN Packages:"))
