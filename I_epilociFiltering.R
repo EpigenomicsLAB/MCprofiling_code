@@ -85,7 +85,7 @@ if(!dir.exists(outDir))
   dir.create(outDir)
 }
 outFiles= split(names(epiMatr), f = names(epiMatr))
-Map(function(x,y) write_tsv(x, path = paste(outDir,"/",y,"_epiAnalysis_filtered.txt", sep=""), col_names = T, quote = "none"),
+Map(function(x,y) write_tsv(x, paste(outDir,"/",y,"_epiAnalysis_filtered.txt", sep=""), col_names = T, quote = "none"),
     epiMatr, outFiles)
-Map(function(x,y) write_tsv(x, path = paste(outDir,"/",y,"_intervals_filtered.txt", sep=""), col_names = T, quote = "none"),
+Map(function(x,y) write_tsv(x, paste(outDir,"/",y,"_intervals_filtered.txt", sep=""), col_names = T, quote = "none"),
     intervals, outFiles)
