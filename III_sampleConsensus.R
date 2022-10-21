@@ -70,4 +70,4 @@ avg_profiles=mclapply(jsd$id, function(x) compute_avg(x, classProfiles), mc.core
 avg_profiles=Reduce(bind_rows, avg_profiles)
 jsd=bind_cols(jsd, avg_profiles)
 # 7) save consensus profile
-write_tsv(jsd, path = paste(outDir,"/consensus_MCprofiles.txt", sep=""), col_names = T, quote = "none")
+write_tsv(jsd, paste(outDir,"/consensus_MCprofiles.txt", sep=""), col_names = T, quote = "none")
