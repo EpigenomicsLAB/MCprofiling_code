@@ -7,10 +7,17 @@ The relative abundances of MCs from sequencing reads incorporates the informatio
 
 For further details on MC profiling, see https://doi.org/10.1101/2022.07.06.498979 or contact giulia.deriso@unina.it
 
-## Install R dependencies
-In order to run the MC profiling code, you need to install R >=4.1
-All the dependencies can be installed  by running the install_dependencies.R script
-
+## Set up R environment
+You can set up the R environment (R version >= 3.6) to run the MC profiling code through anaconda (https://www.anaconda.com/products/distribution), following this steps:
+```
+conda create -n MCprofiling r-base r-essentials
+conda activate MCprofiling
+conda install -c r r-tidyverse
+git clone https://github.com/EpigenomicsLAB/MCprofiling_code.git
+cd MCprofiling_code
+R
+source("install_dependencies.R")
+```
 ## Usage
 ## 1) Preliminary step
 In order to perform MC profiling, we need to run the EpiStatProfiler package (https://github.com/BioinfoUninaScala/epistats).
