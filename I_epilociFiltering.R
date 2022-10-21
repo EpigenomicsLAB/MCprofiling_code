@@ -6,7 +6,7 @@
 library(tidyverse)
 library(parallel)
 ####Parameters
-wd="."
+wd="/home/prova/giulia/MCprofiling_code/"
 setwd(wd)
 inputDir="test_data"
 # set number of cores
@@ -51,7 +51,7 @@ removeOverlaps=function(overlap, cores)
       i=i+Next-1
     }
     return(x[retain,])
-  },mc.cores = 4)
+  },mc.cores = cores)
   
   return(Reduce(bind_rows,overlap))
 }
@@ -72,17 +72,20 @@ intervals=Map(function(x,y) x %>% filter(num_reads<= y) %>% return(),
 #4) filters out regions above maxThresh
 intervals=map(intervals, function(x) return(x[x$num_reads >=min_readNum,]))
 #5) select non overlapping regions
-intervals=map(intervals, function(x) removeOverlaps(as.data.frame(x), n_cores))
+intervals=map(intervals, function(x) suppressWarnings(removeOverlaps(as.data.frame(x), n_cores)))
 #7) load epiMatrix 
-epiMatr=map(matrixFiles, function(x) read_tsv(paste(inputDir,x,sep="/"), col_types = c("c","n","c","c")))
+epiMatr=map(matrixFiles, function(x) read_tsv(paste(inputDir,x,sep="/")))
 #8) get epialleles of selected regions in intervals
-epiMatr=Map(function(x,y) x %>% filter(id %in% y$id),
+epiMatr=Map(function(x,y) x %>% dplyr::filter(id %in% y$id),
             epiMatr, intervals)
 
 #10) save matrix in two files:one with only the class profiles and one with all the information from intervals.txt added
-dir.create(outDir)
+if(!dir.exists(outDir))
+{
+  dir.create(outDir)
+}
 outFiles= split(names(epiMatr), f = names(epiMatr))
-Map(function(x,y) write_tsv(x, file = paste(outDir,"/",y,"_epiAnalysis_filtered.txt", sep=""), col_names = T, quote = "none"), 
+Map(function(x,y) write_tsv(x, path = paste(outDir,"/",y,"_epiAnalysis_filtered.txt", sep=""), col_names = T, quote = "none"),
     epiMatr, outFiles)
-Map(function(x,y) write_tsv(x, file = paste(outDir,"/",y,"_intervals_filtered.txt", sep=""), col_names = T, quote = "none"), 
+Map(function(x,y) write_tsv(x, path = paste(outDir,"/",y,"_intervals_filtered.txt", sep=""), col_names = T, quote = "none"),
     intervals, outFiles)
