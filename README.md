@@ -67,11 +67,20 @@ Note that the script can deal with multiple samples if multiple epiallele filter
 
 ## 3) Comparison of MC profiles
 To quantify the dissimilarity between two MC profiles, we adopted the Jensen-Shannon distance (JSD).
+The Jensen Shannon Distance (JSD) quantifies the degree of dissimilarity between discrete distributions x and y, which in our case are represented by two sets of relative abundances (two MC profiles).
 ```
 JSD<- function(x,y) sqrt(0.5 * KLD(x, (x+y)/2) + 0.5 * KLD(y, (x+y)/2))
-KLD <- function(x,y) sum(x * log2(x/y), na.rm = T)
 ```
-where x and y are the vectors of the abundances of the two MC profiles to be compared.
+where KLD is the Kullback-Leibler Divergence between two discrete distributions. 
+```
+KLD <- function(a,b) sum(a * log2(a/b), na.rm = T)
+```
+Using this set of functions, the JSD between two MC profiles can be computed as:
+```
+profile1 = c(0,0,0.01,0.08,0.91)
+profile2 = c(0.95,0.03,0.02,0,0)
+JSD(profile1, profile2) #0.993
+```
 
 ## 4) Multiple samples handling
 When multiple samples are available for a given condition, we can compute an average profile by running the script III_sampleConsensus.R.
