@@ -51,7 +51,7 @@ For further details on the EpiStatProfiler package, see https://github.com/Bioin
 
 ## 1) Filtering of epiloci
 By executing the script I_epilociFiltering.R, we will select the epiloci with coverage higher or equal to 50 reads and lower than 99th percentile. In case of overlap, we will retain only one of the epiloci.
-For each sample, two new files will be generated: \<sample\>_epiAnalysis_filtered.txt and "<sample>"_intervals_filtered.bed.
+For each sample, two new files will be generated: \<sample\>_epiAnalysis_filtered.txt and \<sample\>_intervals_filtered.bed.
 Note that the script can deal with multiple samples, provided that the epiallele matrix and the bed file are in the same input directory and that they can be matched through their \<sample\> prefix. The input directory can be set by the user changing the value of the inputDir variable in the script.
 
 ## 2) Computation of MC profiles
