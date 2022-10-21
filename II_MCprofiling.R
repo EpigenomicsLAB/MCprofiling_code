@@ -46,5 +46,5 @@ if(!dir.exists(outDir))
 }
 
 outFiles= split(names(classProfiles), f = names(classProfiles))
-Map(function(x,y) write_tsv(x, path = paste(outDir,"/",y,"_MCprofiles.txt", sep=""), col_names = T, quote = "none"),
+Map(function(x,y) write_tsv(x, paste(outDir,"/",y,"_MCprofiles.txt", sep=""), col_names = T, quote = "none"),
     classProfiles, outFiles)
