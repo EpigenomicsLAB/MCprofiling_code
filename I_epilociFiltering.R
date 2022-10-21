@@ -6,7 +6,7 @@
 library(tidyverse)
 library(parallel)
 ####Parameters
-wd="/home/prova/giulia/MCprofiling_code/"
+wd="./"
 setwd(wd)
 inputDir="test_data"
 # set number of cores
