@@ -28,19 +28,23 @@ compute_classProfiles=function(sampleEpi)
     dplyr::summarise_at(vars(Freq),list(Freq = sum))
   sampleEpi=spread(sampleEpi, key = class, value = Freq)
   sampleEpi[is.na(sampleEpi)]=0
-  sampleEpi[-1]=as.data.frame(t(apply(sampleEpi[-1], 1, function(x) x/sum(x))))
+  sampleEpi[-1]=sampleEpi[-1]/rowSums(sampleEpi[-1])
   
   return(as_tibble(sampleEpi))
 }
 #######main
 #1) read input files
 epiMatr=map(matrixFiles, 
-            function(x) read_tsv(paste(inputDir,x,sep="/"), col_types = c("c","n","c","c")))
+            function(x) read_tsv(paste(inputDir,x,sep="/")))
 #2) compute class distributions
-classProfiles=map(epiMatr, function(x) compute_classProfiles(x))
+classProfiles=map(epiMatr, function(x) suppressWarnings(compute_classProfiles(x)))
 
 #3) save matrix in two files:one with only the class profiles and one with all the information from intervals.txt added
-dir.create(outDir)
+if(!dir.exists(outDir))
+{
+  dir.create(outDir)
+}
+
 outFiles= split(names(classProfiles), f = names(classProfiles))
-Map(function(x,y) write_tsv(x, file = paste(outDir,"/",y,"_MCprofiles.txt", sep=""), col_names = T, quote = "none"), 
+Map(function(x,y) write_tsv(x, path = paste(outDir,"/",y,"_MCprofiles.txt", sep=""), col_names = T, quote = "none"),
     classProfiles, outFiles)
