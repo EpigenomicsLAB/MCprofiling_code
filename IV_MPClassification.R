@@ -48,7 +48,10 @@ rownames(distr_df)=profiles$id
 distances=classify_regions(distr_df, distr)
 allinfo=left_join(profiles, distances, by="id")
 # 3) save output
-dir.create(outDir)
+if(!(dir.exists(outDir)))
+{
+  dir.create(outDir)
+}
 write_tsv(allinfo, paste(outDir,"/MP_classification.txt", sep=""), col_names = T, quote = "none")
 
 
