@@ -56,7 +56,10 @@ comb=combn(names(classProfiles),2, simplify = F)
 jsd=map(comb, function(x) compare_regions(classProfiles[[x[1]]], classProfiles[[x[2]]], paste(x, collapse = "_")))
 jsd=Reduce(function(...) inner_join(..., by="id"), jsd)
 # 4) save jsd
-dir.create(outDir)
+if(!dir.exists(outDir))
+{
+  dir.create(outDir)
+}
 write_tsv(jsd, paste0(outDir,"/jsd_pairs.tsv"), col_names = T, quote = "none")
 # 5) select regions with stable MC profiles among samples
 jsd = jsd %>% 
@@ -67,4 +70,4 @@ avg_profiles=mclapply(jsd$id, function(x) compute_avg(x, classProfiles), mc.core
 avg_profiles=Reduce(bind_rows, avg_profiles)
 jsd=bind_cols(jsd, avg_profiles)
 # 7) save consensus profile
-write_tsv(jsd, file = paste(outDir,"/consensus_MCprofiles.txt", sep=""), col_names = T, quote = "none")
+write_tsv(jsd, path = paste(outDir,"/consensus_MCprofiles.txt", sep=""), col_names = T, quote = "none")
