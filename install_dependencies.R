@@ -7,4 +7,4 @@ if(length(cran_pkgs.inst)>0){
    for(pkg in cran_pkgs.inst){
      print(paste0("Installing Package:'", pkg, "'..."))
      install.packages(pkg, repos="http://cran.rstudio.org", dependencies=TRUE)
-     print("Installed!!!")}
+     print("Installed!!!")}}
