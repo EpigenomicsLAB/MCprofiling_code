@@ -39,7 +39,7 @@ The epiallele matrix file (\<sample\>_epiAnalysis.txt) will look like this:
 | 1101 | 2 | chr10_294510_294561 | * |
 | 1111 | 56| chr10_294510_294561 | * |
 
-EpiStatProfiler also compute some statistics for the analzed regions, which will be saved in a bed file.
+EpiStatProfiler will also compute some statistics for the analzed regions, which will be saved in a bed file.
 The bed file (\<sample\>_intervals.bed) will look like this:
 
 | seqnames | start	| end	| width	| strand	| dist	| epi	| singleton	| maxfreq	| shannon	| mean_met	| num_cg |	num_reads |
