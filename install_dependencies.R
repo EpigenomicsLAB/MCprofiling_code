@@ -1,6 +1,6 @@
 if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
 #Install CRAN dependencies
-cran_pkgs <- c("parallel","gtools","combinat")
+cran_pkgs <- c("tidyverse","parallel","gtools","combinat")
 cran_pkgs.inst <- cran_pkgs[!(cran_pkgs %in% rownames(installed.packages()))]
 if(length(cran_pkgs.inst)>0)
 {
