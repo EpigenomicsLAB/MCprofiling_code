@@ -63,7 +63,7 @@ if(!dir.exists(outDir))
 write_tsv(jsd, paste0(outDir,"/jsd_pairs.tsv"), col_names = T, quote = "none")
 # 5) select regions with stable MC profiles among samples
 jsd = jsd %>% 
-  filter(across(starts_with("sample"), function(x) x<=0.26))
+  filter(if_any(starts_with("sample"), function(x) x<=0.26))
 classProfiles = map(classProfiles, function(x) x %>% filter(id %in% jsd$id) %>% arrange(id) %>% return())
 # 6) compute average Profiles
 avg_profiles=mclapply(jsd$id, function(x) compute_avg(x, classProfiles), mc.cores = n_cores)
