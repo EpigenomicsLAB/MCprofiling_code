@@ -18,8 +18,8 @@ option_list <- list(
               help = "Mode string to perform the analysis  [default= %default]",
               metavar = "character"),
   make_option(c("-o", "--out"), type = "character", default = "path",
-	      help = "Set the output path [default= %default]",
-	      metavar = "character"),
+              help = "Set the output path [default= %default]",
+              metavar = "character"),
   make_option("--modeAnalysis", type = "character", default = "n_cg",
               help = "Option to specify the analysis mode
                       Possible values: 'n_cg' or 'windows'[default= %default]",
