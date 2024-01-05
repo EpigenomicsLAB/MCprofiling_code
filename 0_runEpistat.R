@@ -1,4 +1,4 @@
-library(epistat)
+library(epistats)
 library(optparse)
 
 option_list <- list(
@@ -16,6 +16,9 @@ option_list <- list(
               metavar = "logical"),
   make_option(c("-m", "--mode"), type = "character", default = "CG",
               help = "Mode string to perform the analysis  [default= %default]",
+              metavar = "character"),
+  make_option(c("-o", "--out"), type = "character", default = "path",
+              help = "Set the output path [default= %default]",
               metavar = "character"),
   make_option("--modeAnalysis", type = "character", default = "n_cg",
               help = "Option to specify the analysis mode
